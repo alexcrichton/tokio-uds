@@ -16,8 +16,22 @@ travis-ci = { repository = "tokio-rs/tokio-uds" }
 appveyor = { repository = "alexcrichton/tokio-uds" }
 
 [dependencies]
-mio = "0.6"
-mio-uds = "0.6.1"
-futures = "0.1"
-tokio-core = "0.1"
+mio = { git = "https://github.com/carllerche/mio" }
+iovec = { git = "https://github.com/carllerche/iovec" }
+mio-uds = { git = "https://github.com/alexcrichton/mio-uds", branch = "tio" }
 log = "0.3"
+tokio-io = { git = "https://github.com/alexcrichton/tokio-io" }
+bytes = { git = "https://github.com/carllerche/bytes" }
+libc = "0.2"
+
+[dependencies.tokio-core]
+git = "https://github.com/alexcrichton/tokio-core"
+default-features = false
+branch = "tio"
+features = ["use_std"]
+
+[dependencies.futures]
+git = "https://github.com/alexcrichton/futures-rs"
+branch = "close"
+default-features = false
+features = ["use_std"]
